@@ -1,0 +1,17 @@
+{
+	"google": {
+		"sheet": [
+			{
+				"id": "",
+				"gid": "0",
+				"filepath": "src/lib/data/data.csv"
+			}
+		],
+		"doc": [
+			{
+				"id": "",
+				"filepath": "src/lib/data/copy.json"
+			}
+		]
+	}
+}
