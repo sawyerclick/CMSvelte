@@ -1,7 +1,7 @@
 # Tiny Svelte
 A [Svelte](https://svelte.dev/) starter template built with newsrooms in mind. It dynamically creates inline graphics based on the placement of `figure` elements with defined *data-chart* attributes.
 
-Inspired by graphics rigs at Bloomberg, The Pudding, and created with the help of [Kazi Awal](https://github.com/superKazi).
+Inspired by graphics rigs at Bloomberg, The Pudding, and The Wall Street Journal. Created with the help of [Kazi Awal](https://github.com/superKazi).
 
 ## Local env requirements
 
@@ -9,17 +9,16 @@ Inspired by graphics rigs at Bloomberg, The Pudding, and created with the help o
 
 ## Useful docs to features
 
-- [SvelteKit](https://kit.svelte.dev/docs) as an app framework
 - [Svelte](https://svelte.dev/docs) as a component framework
-- [Vite](https://vitejs.dev/guide/) (with [Rollup](https://rollupjs.org/guide/en/)) as SvelteKit's default frontend tooling
-- [TailwindCSS](https://tailwindcss.com/) + [PostCSS](https://postcss.org/) for predefined classes + syntax
+- [Vite](https://vitejs.dev/guide/) (with [Rollup](https://rollupjs.org/guide/en/) under the hood) for front-end tooling
+- [TailwindCSS](https://tailwindcss.com/) + [PostCSS](https://postcss.org/) for predefined styles, classes and syntax
 - [ArchieML](http://archieml.org/) as a micro-CMS powered by Google Docs
 - [ai2html](http://ai2html.org/) for responsive static images and charts
 - [D3](https://github.com/d3/d3) + [LayerCake](https://layercake.graphics/) for charting
 
 ### Quickstart
 
-Use the github cli to create a new repo using this one as a template.
+Use [degit](https://www.npmjs.com/package/degit) to create a new repo using this one as a template.
 
 ```bash
 npx degit sawyerclick/tiny-svelte my-tiny-svelte
@@ -29,7 +28,7 @@ npx degit sawyerclick/tiny-svelte my-tiny-svelte
 
 ### `npm run fetch:sheet`
 
-This template has out-of-the-box features to help with consuming data from google sheets. Tag the Google Sheet for your graphic in `src/lib/config.json` and make sure you have the ID and sheet ID (gid) filled out correctly. Make sure the share permissions on the sheet are set up so that it is viewable by anyone with the share link. **Note: Don't make it available to edit by anybody!**
+This template has out-of-the-box features to help with consuming data from google sheets. Tag the Google Sheet for your graphic in `./config.json` and make sure you have the ID and sheet ID (gid) filled out correctly. Make sure the share permissions on the sheet are set up so that it is viewable by anyone with the share link. **Note: Don't make it available to edit by anybody!**
 
 Directly import csv's into your .svelte file via [@rollup/plugin-dsv](https://www.npmjs.com/package/@rollup/plugin-dsv)
 ```js
