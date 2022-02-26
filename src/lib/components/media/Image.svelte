@@ -7,7 +7,6 @@
 	if (typeof window !== 'undefined' && !loadingExists)
 		observer = new IntersectionObserver(
 			(entries, observer) => {
-				console.log(entries);
 				entries.forEach(({ isIntersecting, target }) => {
 					if (isIntersecting && target.src !== target.dataset.src) {
 						target.src = target.dataset.src;

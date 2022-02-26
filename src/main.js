@@ -3,8 +3,6 @@ import './app.postcss';
 import Fieri from '$lib/assets/fieri.jpeg?w=650&webp';
 import FieriSrcset from '$lib/assets/fieri.jpeg?w=300;600;900&webp&srcset';
 
-console.log(FieriSrcset)
-
 // viz components
 import BarChart from '$lib/components/charts/barchart/index.svelte';
 import AI2HTML from '$lib/components/media/ai2html/ai2html.svelte';
