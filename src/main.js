@@ -1,6 +1,7 @@
 import './app.postcss';
 
-import Fieri from '$lib/assets/fieri.jpeg?w=650&webp'
+import Fieri from '$lib/assets/fieri.jpeg?w=650&webp';
+import FieriSrcset from '$lib/assets/fieri.jpeg?w=300;600;900&webp&srcset';
 
 // viz components
 import BarChart from '$lib/components/charts/barchart/index.svelte';
@@ -9,23 +10,24 @@ import Image from '$lib/components/media/Image.svelte';
 
 const components = [
 	{
+		chartID: 'fieri-img',
+		Component: Image,
+		props: {
+			loading: 'lazy',
+			alt: 'A picture of Flavortown Mayor Guy Fieri',
+			src: Fieri,
+			srcset: FieriSrcset,
+			width: '650px',
+			classes: 'mx-auto'
+		}
+	},
+	{
 		chartID: 'bar-chart',
 		Component: BarChart
 	},
 	{
 		chartID: 'ai2html',
 		Component: AI2HTML
-	},
-	{
-		chartID: 'fieri-img',
-		Component: Image,
-		props: {
-			lazy: true,
-			alt: 'A picture of Flavortown Mayor Guy Fieri',
-			src: Fieri,
-			width: '650px',
-			classes: 'mx-auto'
-		}
 	}
 ];
 
