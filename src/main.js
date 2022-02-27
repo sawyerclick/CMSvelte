@@ -6,7 +6,7 @@ import FieriSrcset from '$lib/assets/fieri.jpeg?w=300;600;900&webp&srcset';
 // viz components
 import BarChart from '$lib/components/charts/barchart/index.svelte';
 import AI2HTML from '$lib/components/media/ai2html/ai2html.svelte';
-import Image from '$lib/components/media/Image.svelte';
+import { Image } from 'svelte-lazy-loader'
 
 const components = [
 	{
