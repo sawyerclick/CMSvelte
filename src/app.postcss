@@ -1,35 +1,27 @@
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-	/* general section padding and grid widths */
-	.content-well {
-		@apply w-full max-w-7xl px-4 lg:px-8 mx-auto my-4 lg:my-8;
-	}
-
-	/* tooltip */
-	[data-tooltip] {
-		@apply relative inline-block cursor-pointer;
-	}
-	[data-tooltip]:active:after,
-	[data-tooltip]:active:before,
-	[data-tooltip]:focus:after,
-	[data-tooltip]:focus:before,
-	[data-tooltip]:hover:after,
-	[data-tooltip]:hover:before {
-		@apply block -translate-y-1;
-	}
-	[data-tooltip]:after {
-		@apply bottom-full bg-black text-white text-xs rounded py-1 px-2 whitespace-nowrap leading-tight;
-		content: attr(data-tooltip);
-	}
-	[data-tooltip]:before {
-		@apply absolute top-[-4px] left-0 w-[8px] h-[8px] border-r border-b border-black bg-black rotate-45;
-		content: '';
-	}
-	[data-tooltip]:after,
-	[data-tooltip]:before {
-		@apply z-40 hidden absolute left-1/2 select-none  -translate-x-1/2 -translate-y-2 pointer-events-none transition-all duration-300 ease-out;
-	}
+/* tooltip via data-tooltip="Hello world" */
+[data-tooltip] {
+	@apply cmsvelte-relative cmsvelte-inline-block cmsvelte-cursor-pointer;
+}
+[data-tooltip]:active:after,
+[data-tooltip]:active:before,
+[data-tooltip]:focus:after,
+[data-tooltip]:focus:before,
+[data-tooltip]:hover:after,
+[data-tooltip]:hover:before {
+	@apply cmsvelte-block cmsvelte--translate-y-1;
+}
+[data-tooltip]:after {
+	@apply cmsvelte-bottom-full cmsvelte-bg-black cmsvelte-text-white cmsvelte-text-xs cmsvelte-rounded cmsvelte-py-1 cmsvelte-px-2 cmsvelte-whitespace-nowrap cmsvelte-leading-tight;
+	content: attr(data-tooltip);
+}
+[data-tooltip]:before {
+	@apply cmsvelte-absolute cmsvelte-top-[-4px] cmsvelte-left-0 cmsvelte-w-[8px] cmsvelte-h-[8px] cmsvelte-border-r cmsvelte-border-b cmsvelte-border-black cmsvelte-bg-black cmsvelte-rotate-45;
+	content: '';
+}
+[data-tooltip]:after,
+[data-tooltip]:before {
+	@apply cmsvelte-z-40 cmsvelte-hidden cmsvelte-absolute cmsvelte-left-1/2 cmsvelte-select-none  cmsvelte--translate-x-1/2 cmsvelte--translate-y-2 cmsvelte-pointer-events-none cmsvelte-transition-all cmsvelte-duration-300 cmsvelte-ease-out;
 }
