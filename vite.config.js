@@ -4,7 +4,6 @@ import path from 'path';
 import dsv from '@rollup/plugin-dsv';
 import { imagetools } from 'vite-imagetools';
 import preprocess from 'svelte-preprocess';
-import autoprefixer from 'autoprefixer';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -35,7 +34,7 @@ export default defineConfig(({ command, mode }) => {
 			imagetools(),
 			svelte({
 				preprocess: preprocess({
-					postcss: { plugins: [autoprefixer()] }
+					postcss: true
 				})
 			})
 		]
