@@ -1,7 +1,10 @@
-# Tiny Svelte
-A [Svelte](https://svelte.dev/) starter template built with newsrooms in mind. It dynamically creates inline graphics based on the placement of `figure` elements with defined *data-chart* attributes.
+# **CMS**velte
+
+A [Svelte](https://svelte.dev/) starter template built with newsroom CMS's in mind. Dynamically create inline graphics based on the placement of `figure` elements with defined *data-chart* attributes.
 
 Inspired by graphics rigs at Bloomberg, The Pudding, and The Wall Street Journal. Created with the help of [Kazi Awal](https://github.com/superKazi).
+
+ *Previously known as tiny-svelte*.
 
 ## Local env requirements
 
@@ -15,6 +18,8 @@ Inspired by graphics rigs at Bloomberg, The Pudding, and The Wall Street Journal
 - [ArchieML](http://archieml.org/) as a micro-CMS powered by Google Docs
 - [ai2html](http://ai2html.org/) for responsive static images and charts
 - [D3](https://github.com/d3/d3) + [LayerCake](https://layercake.graphics/) for charting
+- [vite-imagetools](https://www.npmjs.com/package/vite-imagetools) for transforming images on the fly in Vite using Sharp
+- [svelte-lazy-loader](https://www.npmjs.com/package/svelte-lazy-loader) for effortless lazy loading (created by Sawyer Click, author of CMSvelte)
 
 ### Quickstart
 
@@ -31,6 +36,7 @@ npx degit sawyerclick/cmsvelte my-cmsvelte
 This template has out-of-the-box features to help with consuming data from google sheets. Tag the Google Sheet for your graphic in `./config.json` and make sure you have the ID and sheet ID (gid) filled out correctly. Make sure the share permissions on the sheet are set up so that it is viewable by anyone with the share link. **Note: Don't make it available to edit by anybody!**
 
 Directly import csv's into your .svelte file via [@rollup/plugin-dsv](https://www.npmjs.com/package/@rollup/plugin-dsv)
+
 ```js
 import data from '$lib/data/data.csv'
 ```
@@ -42,10 +48,10 @@ Like a lot of newsrooms, this uses a Google Doc and ArchieMl approach to make co
 [htmlparser2](https://www.npmjs.com/package/htmlparser2) and [html-entities](https://www.npmjs.com/package/html-entities) act as a middle man to catch various tags like `<a>`, `<h*>`, `<ul>` and more.
 
 Import copy into your package like any JSON file
+
 ```js
 import copy from '$lib/data/copy.json'
 ```
-
 
 ## Development
 
@@ -64,7 +70,8 @@ CMSvelte's power is dynamic placement unrestrained by content. After build, you 
 To place graphics, edit `index.html` by adding or removing figures such as this: `<figure data-chart="CHART-ID"></figure>`. 
 
 Then, in `src/main.js`, import your wrapper component up top and add the applicable data to the component array. Every object in this array should have 1) a matching `<figure>` element in index.html and 2) an imported component: 
-```
+
+```js
 const components = [
 	{
 		chartID: 'CHART-ID',
@@ -89,7 +96,11 @@ const components = [
 
 ### Writing styles
 
-This template uses [Tailwind](https://tailwindcss.com/) for out-of-the-box classes that we don't have to think about. If you want to write global styles, do so in `app.postcss`. Otherwise, use [Svelte's built-in scroped styling syntax](https://svelte.dev/tutorial/styling).
+It's recommended to include the CMS's styles in a development environment and defer to them for fonts and classes to reduce the shipped CSS. This can be done by adding objects to a `cmsFiles` array in `main.js`. This appends any tag and it's listed attributes to the `<head>` while in dev mode. These are not included in production.
+
+Otherwise, this template uses [Tailwind](https://tailwindcss.com/) for out-of-the-box classes that we don't have to think about. By default, these classes are prefixed with `cmsvelte-` to prevent clashing with CMS classes. This can be changed in `tailwind.config.cjs`. 
+
+Write global styles in `app.postcss`. Otherwise, use [Svelte's built-in scroped styling syntax](https://svelte.dev/tutorial/styling).
 
 ### Asset management
 
@@ -126,18 +137,32 @@ import imgUrl from '$lib/assets/img.svg?raw'
 - [svelte-select](https://www.npmjs.com/package/svelte-select) - A select/autocomplete component for Svelte apps. With support for grouping, filtering, async and more.
 - [swiper](https://www.npmjs.com/package/swiper) - Modern mobile touch slider with hardware accelerated transitions and amazing native behavior.
 
-### Deploy
+### Deployment
 
 ```bash
 npm run build
 ```
 
-In the project root the command generates a directory called `build`. The built files have names without hashing thanks to [Rollup's config options](https://rollupjs.org/guide/en/#rolluprollup). You only have to embed once as the graphics are generated client-side.
+In the project root the command generates a directory called `build`. The built files have names without hashing thanks to [Rollup's config options](https://rollupjs.org/guide/en/#rolluprollup). You only need to embed once as the graphics are generated client-side.
 
-The generated files will likely live in an S3 bucket or other storage site. If that's the case, update the `base` url in `vite.config.js` to match the URL when in production mode.
+The generated files will likely live in an S3 bucket or other storage site. Update the `base` url in `vite.config.js` to match the final URL of the files. A script to facilitate file uploading to S3 or another service can be easily written in the scripts folder.
 
 ```js
 base: mode === 'production' ? link : '/',
 ```
 
+The resulting `build/index.html` file is what can be embedded. It should look something like this, with a `<figure>` element for each graphic, as well as `<script>`s and `<link>`s to external files:
+
+```html
+<script type="module" crossorigin src="https://www.site.com/path/to/index.js"></script>
+<link rel="modulepreload" href="https://www.site.com/path/to/vendor.js">
+<link rel="stylesheet" href="https://www.site.com/path/to/vendor.css">
+<link rel="stylesheet" href="https://www.site.com/path/to/index.css">
+
+<figure data-chart="castle-img"></figure>
+<figure data-chart="bar-chart"></figure>
+<figure data-chart="ai2html"></figure>
+```
+
+Scripts and styles should be embedded once anywhere in the CMS. The `<figure data-chart="">` elements can be moved around as needed and do not need to live side-by-side. The `index.js` script will generate the graphics accordingly based on the `data-chart` attribute.
 
