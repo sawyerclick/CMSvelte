@@ -21,7 +21,7 @@ Inspired by graphics rigs at Bloomberg, The Pudding, and The Wall Street Journal
 Use [degit](https://www.npmjs.com/package/degit) to create a new repo using this one as a template.
 
 ```bash
-npx degit sawyerclick/tiny-svelte my-tiny-svelte
+npx degit sawyerclick/cmsvelte my-cmsvelte
 ```
 
 ## Scripts
@@ -59,7 +59,7 @@ Modify content in `src`.
 
 ### Adding and removing graphics
 
-Tiny-svelte's power is dynamic placement unrestrained by content. After build, you can place the `<figure data-chart="CHART-ID">` elements anywhere in the CMS and they will load.
+CMSvelte's power is dynamic placement unrestrained by content. After build, you can place the `<figure data-chart="CHART-ID">` elements anywhere in the CMS and they will load.
 
 To place graphics, edit `index.html` by adding or removing figures such as this: `<figure data-chart="CHART-ID"></figure>`. 
 
@@ -139,3 +139,5 @@ The generated files will likely live in an S3 bucket or other storage site. If t
 ```js
 base: mode === 'production' ? link : '/',
 ```
+
+
