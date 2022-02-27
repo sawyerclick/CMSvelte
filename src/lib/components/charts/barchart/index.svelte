@@ -19,7 +19,7 @@
 	});
 </script>
 
-<div class="h-[400px] w-full px-4">
+<div class="cmsvelte-h-[400px] cmsvelte-w-full cmsvelte-px-4">
 	<LayerCake
 		padding={{ top: 0, bottom: 20, left: 35 }}
 		x={xKey}

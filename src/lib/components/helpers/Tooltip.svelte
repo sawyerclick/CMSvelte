@@ -19,7 +19,7 @@
 
 {#if tipData}
 	<div
-		class="bg-white text-black absolute border border-black rounded-md shadow-md text-left p-2 z-50 pointer-events-none text-base font-regular max-w-[200px] w-auto"
+		class="cmsvelte-bg-white cmsvelte-text-black cmsvelte-absolute cmsvelte-border cmsvelte-border-black cmsvelte-rounded-md cmsvelte-shadow-md cmsvelte-text-left cmsvelte-p-2 cmsvelte-z-50 cmsvelte-pointer-events-none cmsvelte-text-base cmsvelte-font-regular cmsvelte-max-w-[200px] cmsvelte-w-auto"
 		style="left:{left}px;top:{top}px;"
 		bind:clientWidth={tipWidth}
 	>

@@ -79,23 +79,19 @@
 	{/each}
 </g>
 
-<style>
+<style lang="postcss">
 	.tick {
-		font-size: 0.725em;
-		font-weight: 200;
+		@apply cmsvelte-font-mono cmsvelte-font-thin cmsvelte-text-sm;
 	}
-
 	.tick line {
-		stroke: #aaa;
+		@apply cmsvelte-stroke-gray-300;
 	}
 	.tick .gridline {
 		stroke-dasharray: 2;
 	}
-
 	.tick text {
-		fill: #666;
+		@apply cmsvelte-fill-gray-500;
 	}
-
 	.tick.tick-0 line {
 		stroke-dasharray: 0;
 	}

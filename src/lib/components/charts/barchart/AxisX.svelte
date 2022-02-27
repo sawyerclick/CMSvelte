@@ -82,20 +82,19 @@
 	{/if}
 </g>
 
-<style>
+<style lang="postcss">
 	.tick {
-		font-size: 0.725em;
-		font-weight: 200;
+		@apply cmsvelte-font-mono cmsvelte-font-thin cmsvelte-text-sm;
 	}
 
 	line,
 	.tick line {
-		stroke: #aaa;
+		@apply cmsvelte-stroke-gray-400;
 		stroke-dasharray: 2;
 	}
 
 	.tick text {
-		fill: #666;
+		@apply cmsvelte-fill-gray-500;
 	}
 
 	.tick .tick-mark,
@@ -104,9 +103,9 @@
 	}
 	/* This looks slightly better */
 	.axis.snapTicks .tick:last-child text {
-		transform: translateX(3px);
+		@apply cmsvelte-translate-x-3;
 	}
 	.axis.snapTicks .tick.tick-0 text {
-		transform: translateX(-3px);
+		@apply cmsvelte--translate-x-3;
 	}
 </style>

@@ -8,14 +8,13 @@
 	const { data, xGet, yGet, xScale, yScale } = getContext('LayerCake');
 
 	/** @type {String} [fill='fill-primary'] - The shape's fill color as a CSS class, optimized for TailWind integration. This is technically optional because it comes with a default value but you'll likely want to replace it with your own fill class. */
-	export let fill = 'fill-primary';
+	export let fill = 'cmsvelte-fill-primary';
 </script>
 
 <g class="bar-group">
 	{#each $data as d, i}
 		<rect
-			class="group-rect {fill}"
-			data-id={i}
+			class={fill}
 			x={$xScale.range()[0]}
 			y={$yGet(d)}
 			height={$yScale.bandwidth()}
