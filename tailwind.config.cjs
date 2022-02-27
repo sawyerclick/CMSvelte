@@ -1,4 +1,6 @@
 module.exports = {
+	prefix: 'cmsvelte-',
+	important: true,
 	content: ['./src/**/*.{html,js,svelte,ts}', './src/lib/data/copy.json', './index.html'],
 	plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 	theme: {
@@ -23,6 +25,6 @@ module.exports = {
 			'7xl': ['4.5rem'],
 			'8xl': ['6rem'],
 			'9xl': ['8rem']
-		},
+		}
 	}
 };
