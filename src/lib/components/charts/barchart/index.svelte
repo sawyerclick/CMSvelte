@@ -19,9 +19,9 @@
 	});
 </script>
 
-<div class="cmsvelte-h-[400px] cmsvelte-w-full cmsvelte-px-4">
+<div class="cmsvelte-w-full" style:height="400px">
 	<LayerCake
-		padding={{ top: 0, bottom: 20, left: 35 }}
+		padding={{ top: 0, bottom: 17, left: 42 }}
 		x={xKey}
 		y={yKey}
 		yScale={scaleBand().paddingInner([0.05]).round(true)}
