@@ -1,14 +1,15 @@
-import { defineConfig } from 'vite';
+import dsv from '@rollup/plugin-dsv';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import path from 'path';
-import dsv from '@rollup/plugin-dsv';
-import { imagetools } from 'vite-imagetools';
 import preprocess from 'svelte-preprocess';
+import { defineConfig } from 'vite';
+import { imagetools } from 'vite-imagetools';
+import cssInjectedByJs from 'vite-plugin-css-injected-by-js';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
 	return {
-		base: '/',
+		base: mode === 'development' ? '/' : 'https://cmsvelte.s3.amazonaws.com/',
 		build: {
 			// mimic svelte-template output
 			outDir: 'build',
@@ -30,6 +31,7 @@ export default defineConfig(({ command, mode }) => {
 			}
 		},
 		plugins: [
+			cssInjectedByJs({ styleId: 'cmsvelte-styles' }),
 			dsv(),
 			imagetools(),
 			svelte({

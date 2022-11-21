@@ -13,7 +13,7 @@ import ImageSrcset from '$lib/assets/san-felipe-del-morro-castle.jpg?w=300;600;9
 import BarChart from '$lib/components/charts/barchart/index.svelte';
 import AI2HTML from '$lib/components/media/ai2html/ai2html.svelte';
 
-// an array of our components, mapped to match the <figure data-chart=""> elements in index.html
+// an array of our components, mapped to match the <figure data-cmsvelte=""> elements in index.html
 const components = [
 	{
 		chartID: 'castle-img',
@@ -101,7 +101,7 @@ function mountComponent({
 
 components.forEach((comp) => {
 	const { chartID, Component, props } = comp;
-	const target = document.querySelector(`figure[data-chart="${chartID}"]`);
+	const target = document.querySelector(`[data-cmsvelte="${chartID}"]`);
 	mountComponent({
 		Component,
 		target,

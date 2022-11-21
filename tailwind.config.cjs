@@ -1,8 +1,7 @@
 module.exports = {
 	prefix: 'cmsvelte-',
-	important: true,
 	content: ['./src/**/*.{html,js,svelte,ts}', './src/lib/data/copy.json', './index.html'],
-	plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
+	plugins: [],
 	theme: {
 		screens: {
 			sm: '640px',

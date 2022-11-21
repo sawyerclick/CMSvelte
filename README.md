@@ -1,6 +1,6 @@
 # **CMS**velte
 
-A [Svelte](https://svelte.dev/) starter template built with newsroom CMS's in mind. Dynamically create inline graphics based on the placement of `figure` elements with defined *data-chart* attributes.
+A [Svelte](https://svelte.dev/) starter template built with newsroom CMS's in mind. Dynamically create inline graphics based on the placement of `figure` elements with defined *data-cmsvelte* attributes.
 
 Inspired by graphics rigs at Bloomberg, The Pudding, and The Wall Street Journal. Created with the help of [Kazi Awal](https://github.com/superKazi).
 
@@ -65,9 +65,9 @@ Modify content in `src`.
 
 ### Adding and removing graphics
 
-CMSvelte's power is dynamic placement unrestrained by content. After build, you can place the `<figure data-chart="CHART-ID">` elements anywhere in the CMS and they will load.
+CMSvelte's power is dynamic placement unrestrained by content. After build, you can place the `<figure data-cmsvelte="CHART-ID">` elements anywhere in the CMS and they will load.
 
-To place graphics, edit `index.html` by adding or removing figures such as this: `<figure data-chart="CHART-ID"></figure>`. 
+To place graphics, edit `index.html` by adding or removing figures such as this: `<figure data-cmsvelte="CHART-ID"></figure>`. 
 
 Then, in `src/main.js`, import your wrapper component up top and add the applicable data to the component array. Every object in this array should have 1) a matching `<figure>` element in index.html and 2) an imported component: 
 
@@ -159,10 +159,10 @@ The resulting `build/index.html` file is what can be embedded. It should look so
 <link rel="stylesheet" href="https://www.site.com/path/to/vendor.css">
 <link rel="stylesheet" href="https://www.site.com/path/to/index.css">
 
-<figure data-chart="castle-img"></figure>
-<figure data-chart="bar-chart"></figure>
-<figure data-chart="ai2html"></figure>
+<figure data-cmsvelte="castle-img"></figure>
+<figure data-cmsvelte="bar-chart"></figure>
+<figure data-cmsvelte="ai2html"></figure>
 ```
 
-Scripts and styles should be embedded once anywhere in the CMS. The `<figure data-chart="">` elements can be moved around as needed and do not need to live side-by-side. The `index.js` script will generate the graphics accordingly based on the `data-chart` attribute.
+Scripts and styles should be embedded once anywhere in the CMS. The `<figure data-cmsvelte="">` elements can be moved around as needed and do not need to live side-by-side. The `index.js` script will generate the graphics accordingly based on the `data-cmsvelte` attribute.
 

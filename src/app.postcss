@@ -1,27 +1,48 @@
-@tailwind components;
-@tailwind utilities;
+/* Global styles, will effect everything on page */
+header {
+	text-align: center;
+	max-width: 640px;
+	margin: 0 auto;
+}
+h1 {
+	font-size: 2.5rem;
+	font-weight: 200;
+	font-family: monospace;
+	letter-spacing: 1px;
+}
+p {
+	font-family: monospace;
+	font-size: 1rem;
+}
 
-/* tooltip via data-tooltip="Hello world" */
-[data-tooltip] {
-	@apply cmsvelte-relative cmsvelte-inline-block cmsvelte-cursor-pointer;
-}
-[data-tooltip]:active:after,
-[data-tooltip]:active:before,
-[data-tooltip]:focus:after,
-[data-tooltip]:focus:before,
-[data-tooltip]:hover:after,
-[data-tooltip]:hover:before {
-	@apply cmsvelte-block cmsvelte--translate-y-1;
-}
-[data-tooltip]:after {
-	@apply cmsvelte-bottom-full cmsvelte-bg-black cmsvelte-text-white cmsvelte-text-xs cmsvelte-rounded cmsvelte-py-1 cmsvelte-px-2 cmsvelte-whitespace-nowrap cmsvelte-leading-tight;
-	content: attr(data-tooltip);
-}
-[data-tooltip]:before {
-	@apply cmsvelte-absolute cmsvelte-top-[-4px] cmsvelte-left-0 cmsvelte-w-[8px] cmsvelte-h-[8px] cmsvelte-border-r cmsvelte-border-b cmsvelte-border-black cmsvelte-bg-black cmsvelte-rotate-45;
-	content: '';
-}
-[data-tooltip]:after,
-[data-tooltip]:before {
-	@apply cmsvelte-z-40 cmsvelte-hidden cmsvelte-absolute cmsvelte-left-1/2 cmsvelte-select-none  cmsvelte--translate-x-1/2 cmsvelte--translate-y-2 cmsvelte-pointer-events-none cmsvelte-transition-all cmsvelte-duration-300 cmsvelte-ease-out;
+/* Scoped charting styles. Won't effect anything else on the page. */
+[data-cmsvelte] {
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	/* tooltip via data-tooltip="Hello world" */
+	[data-tooltip] {
+		@apply cmsvelte-relative cmsvelte-inline-block cmsvelte-cursor-pointer;
+	}
+	[data-tooltip]:active:after,
+	[data-tooltip]:active:before,
+	[data-tooltip]:focus:after,
+	[data-tooltip]:focus:before,
+	[data-tooltip]:hover:after,
+	[data-tooltip]:hover:before {
+		@apply cmsvelte-block cmsvelte--translate-y-1;
+	}
+	[data-tooltip]:after {
+		@apply cmsvelte-bottom-full cmsvelte-bg-black cmsvelte-text-white cmsvelte-text-xs cmsvelte-rounded cmsvelte-py-1 cmsvelte-px-2 cmsvelte-whitespace-nowrap cmsvelte-leading-tight;
+		content: attr(data-tooltip);
+	}
+	[data-tooltip]:before {
+		@apply cmsvelte-absolute cmsvelte-top-[-4px] cmsvelte-left-0 cmsvelte-w-[8px] cmsvelte-h-[8px] cmsvelte-border-r cmsvelte-border-b cmsvelte-border-black cmsvelte-bg-black cmsvelte-rotate-45;
+		content: '';
+	}
+	[data-tooltip]:after,
+	[data-tooltip]:before {
+		@apply cmsvelte-z-40 cmsvelte-hidden cmsvelte-absolute cmsvelte-left-1/2 cmsvelte-select-none  cmsvelte--translate-x-1/2 cmsvelte--translate-y-2 cmsvelte-pointer-events-none cmsvelte-transition-all cmsvelte-duration-300 cmsvelte-ease-out;
+	}
 }
