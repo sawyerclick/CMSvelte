@@ -1,17 +1,15 @@
-import './app.postcss';
-
-// https://www.npmjs.com/package/svelte-lazy-loader
-import { Image } from 'svelte-lazy-loader';
-
 // create images on-the-fly with vite-imagetools
 // https://www.npmjs.com/package/vite-imagetools
 import ImagePlaceholder from '$lib/assets/san-felipe-del-morro-castle.jpg?w=100&png&blur=5';
-import ImageSrc from '$lib/assets/san-felipe-del-morro-castle.jpg?w=650&webp';
-import ImageSrcset from '$lib/assets/san-felipe-del-morro-castle.jpg?w=300;600;900&webp&srcset';
-
+import ImageSrcset from '$lib/assets/san-felipe-del-morro-castle.jpg?w=300;600;900&format=webp&as=srcset';
+import ImageSrc from '$lib/assets/san-felipe-del-morro-castle.jpg?w=650&format=jpg';
 // viz components
 import BarChart from '$lib/components/charts/barchart/index.svelte';
 import AI2HTML from '$lib/components/media/ai2html/ai2html.svelte';
+// https://www.npmjs.com/package/svelte-lazy-loader
+import { Image } from 'svelte-lazy-loader';
+
+import './app.postcss';
 
 // an array of our components, mapped to match the <figure data-cmsvelte=""> elements in index.html
 const components = [
@@ -40,7 +38,7 @@ const components = [
 ];
 
 // add objects in the cmsFiles array to mimic styles and scripts in your CMS while developing. These scripts aren't included in production mode.
-const cmsFiles = [
+const cmsFiles: { tag: string; attributes: object } = [
 	// {
 	// 	tag: 'link',
 	// 	attributes: {

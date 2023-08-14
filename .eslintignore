@@ -1,0 +1,20 @@
+.DS_Store
+node_modules
+/.nelitfy
+/.storybook
+/.vscode
+/build
+/.svelte-kit
+/.netlify
+/package
+.env
+.env.*
+!.env.example
+
+# Ignore files for PNPM, NPM and YARN
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+*.config.js
+*.config.ts
+**/ai2html

@@ -19,7 +19,6 @@ Inspired by graphics rigs at Bloomberg, The Pudding, and The Wall Street Journal
 - [ai2html](http://ai2html.org/) for responsive static images and charts
 - [D3](https://github.com/d3/d3) + [LayerCake](https://layercake.graphics/) for charting
 - [vite-imagetools](https://www.npmjs.com/package/vite-imagetools) for transforming images on the fly in Vite using Sharp
-- [svelte-lazy-loader](https://www.npmjs.com/package/svelte-lazy-loader) for effortless lazy loading (created by Sawyer Click, author of CMSvelte)
 
 ### Quickstart
 
@@ -69,7 +68,7 @@ CMSvelte's power is dynamic placement unrestrained by content. After build, you 
 
 To place graphics, edit `index.html` by adding or removing figures such as this: `<figure data-cmsvelte="CHART-ID"></figure>`. 
 
-Then, in `src/main.js`, import your wrapper component up top and add the applicable data to the component array. Every object in this array should have 1) a matching `<figure>` element in index.html and 2) an imported component: 
+Then, in `src/main.ts`, import your wrapper component up top and add the applicable data to the component array. Every object in this array should have 1) a matching `<figure>` element in index.html and 2) an imported component: 
 
 ```js
 const components = [
@@ -96,7 +95,7 @@ const components = [
 
 ### Writing styles
 
-It's recommended to include the CMS's styles in a development environment and defer to them for fonts and classes to reduce the shipped CSS. This can be done by adding objects to a `cmsFiles` array in `main.js`. This appends any tag and it's listed attributes to the `<head>` while in dev mode. These are not included in production.
+It's recommended to include the CMS's styles in a development environment and defer to them for fonts and classes to reduce the shipped CSS. This can be done by adding objects to a `cmsFiles` array in `main.ts`. This appends any tag and it's listed attributes to the `<head>` while in dev mode. These are not included in production.
 
 Otherwise, this template uses [Tailwind](https://tailwindcss.com/) for out-of-the-box classes that we don't have to think about. By default, these classes are prefixed with `cmsvelte-` to prevent clashing with CMS classes. This can be changed in `tailwind.config.cjs`. 
 
