@@ -1,39 +1,12 @@
-// create images on-the-fly with vite-imagetools
-// https://www.npmjs.com/package/vite-imagetools
-import ImagePlaceholder from '$lib/assets/san-felipe-del-morro-castle.jpg?w=100&png&blur=5';
-import ImageSrcset from '$lib/assets/san-felipe-del-morro-castle.jpg?w=300;600;900&format=webp&as=srcset';
-import ImageSrc from '$lib/assets/san-felipe-del-morro-castle.jpg?w=650&format=jpg';
-// viz components
 import BarChart from '$lib/components/charts/barchart/index.svelte';
-import AI2HTML from '$lib/components/media/ai2html/ai2html.svelte';
-// https://www.npmjs.com/package/svelte-lazy-loader
-import { Image } from 'svelte-lazy-loader';
 
 import './app.postcss';
 
 // an array of our components, mapped to match the <figure data-cmsvelte=""> elements in index.html
 const components = [
 	{
-		chartID: 'castle-img',
-		Component: Image,
-		props: {
-			loading: 'lazy',
-			alt: 'A few tourists walk up the lawn to the side of the old stone San Felipe del Morro Castle in San Juan, Puerto Rico',
-			placeholder: ImagePlaceholder,
-			src: ImageSrc,
-			srcset: ImageSrcset,
-			width: '650px',
-			classes:
-				'cmsvelte-mx-auto cmsvelte-block cmsvelte-w-full cmsvelte-h-auto cmsvelte-max-w-[720px]'
-		}
-	},
-	{
 		chartID: 'bar-chart',
 		Component: BarChart
-	},
-	{
-		chartID: 'ai2html',
-		Component: AI2HTML
 	}
 ];
 
