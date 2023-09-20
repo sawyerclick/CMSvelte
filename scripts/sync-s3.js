@@ -28,9 +28,9 @@ const timeout = setInterval(() => console.log(monitor.getStatus()), 2000);
 try {
 	await sync('./build', process.env.S3_BUCKET, {
 		monitor,
-		commandInput: {
-			ContentType: (syncCommandInput) => mime.lookup(syncCommandInput.Key) || 'text/html'
-		}
+		commandInput: (input) => ({
+			ContentType: mime.lookup(input.Key) || 'text/html'
+		})
 	});
 } finally {
 	clearInterval(timeout);
