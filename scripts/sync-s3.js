@@ -1,10 +1,10 @@
 import { S3Client } from '@aws-sdk/client-s3';
 import mime from 'mime-types';
-import S3SyncClient from 's3-sync-client';
+import { S3SyncClient, TransferMonitor } from 's3-sync-client';
 
 import 'dotenv/config';
 
-const monitor = new S3SyncClient.TransferMonitor();
+const monitor = new TransferMonitor();
 
 monitor.on('progress', (progress) => {
 	console.log(progress.count.current, ' / ', progress.count.total);
